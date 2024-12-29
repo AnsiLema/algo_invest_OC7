@@ -4,7 +4,7 @@ import timeit
 
 def script_brute_force():
     # Load data from CSV file
-    file_path = "liste_20_actions.csv"
+    file_path = "dataset1_Python+P7.csv"
     actions_df = pd.read_csv(file_path)
 
     # Calculate the “Valeur du bénéfice” for each stock
@@ -14,7 +14,7 @@ def script_brute_force():
     actions = actions_df.to_dict(orient="records")
 
     # Set the maximum budget
-    max_budget = 500
+    max_budget = 500.00
 
     # Initialize the best combination
     best_combination = []
