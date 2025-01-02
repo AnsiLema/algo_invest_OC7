@@ -3,11 +3,11 @@ import timeit
 
 def script_knapsack():
     # Load data from a CSV file
-    file_path = "liste_20_actions.csv"
+    file_path = "dataset2_Python+P7.csv"
     actions_df = pd.read_csv(file_path)
 
     # Exclude stocks with a cost of 0 or a profit rate of 0
-    actions_df = actions_df[(actions_df["Coût"] > 0) & (actions_df["Bénéfice"] > 0)]
+    actions_df = actions_df[(actions_df["Coût"] > 1) & (actions_df["Bénéfice"] > 0)]
 
     # Calculate the “Earnings Value” for each stock
     actions_df["Valeur du bénéfice"] = actions_df["Coût"] * actions_df["Bénéfice"] / 100
@@ -51,12 +51,17 @@ def script_knapsack():
     # Calculate the total cost of selected actions
     sum_of_costs = sum(action["Coût"] for action in selected_actions)
 
+
     # Show results
     print("Meilleure combinaison d'actions :")
     for action in selected_actions:
         print(f"- {action['Actions']} (Coût : {action['Coût']}€, Bénéfice : {action['Valeur du bénéfice']:.2f}€)")
     print(f"Somme Investie: {sum_of_costs:.2f}€")
     print(f"Profit Total : {max_profit:.2f}€")
+    profit_ratio = max_profit / sum_of_costs * 100
+    print(f"Ratio des bénéfices : {profit_ratio:.2f}%")
+
+
 
 execution_time = timeit.timeit(script_knapsack, number=1)
-print(f"Execution time: {execution_time:.2f} secondes")
+print(f"Temps d'exécution : {execution_time:.2f} secondes")

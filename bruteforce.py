@@ -26,6 +26,7 @@ def script_brute_force():
             total_cost = sum(action["Coût"] for action in combination)
             total_profit = sum(action["Valeur du bénéfice"] for action in combination)
 
+
             if total_cost <= max_budget and total_profit > best_profit:
                 best_combination = combination
                 best_profit = total_profit
@@ -41,6 +42,7 @@ def script_brute_force():
 
     print(f"Somme Investie: {sum_of_costs}€")
     print(f"Profit Total : {best_profit:.2f}€")
+
 
 execution_time = timeit.timeit(script_brute_force, number=1)
 print(f"Temps d'execution : {execution_time:.2f} secondes")
