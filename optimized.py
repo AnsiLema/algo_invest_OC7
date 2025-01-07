@@ -7,7 +7,7 @@ def script_knapsack():
     actions_df = pd.read_csv(file_path)
 
     # Exclude stocks with a cost of 0 or a profit rate of 0
-    actions_df = actions_df[(actions_df["Coût"] > 1) & (actions_df["Bénéfice"] > 0)]
+    actions_df = actions_df[(actions_df["Coût"] > 0) & (actions_df["Bénéfice"] > 0)]
 
     # Calculate the “Earnings Value” for each stock
     actions_df["Valeur du bénéfice"] = actions_df["Coût"] * actions_df["Bénéfice"] / 100

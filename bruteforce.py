@@ -4,10 +4,10 @@ import timeit
 
 def script_brute_force():
     # Load data from CSV file
-    file_path = "dataset1_Python+P7.csv"
+    file_path = "liste_20_actions.csv"
     actions_df = pd.read_csv(file_path)
 
-    # Calculate the “Valeur du bénéfice” for each stock
+    # Calculate “Valeur du bénéfice” for each stock
     actions_df["Valeur du bénéfice"] = actions_df["Coût"] * actions_df["Bénéfice"] / 100
 
     # Convert DataFrame to a list of dictionaries for compatibility with itertools
