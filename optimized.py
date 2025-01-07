@@ -1,7 +1,7 @@
 import pandas as pd
 import timeit
 
-def script_knapsack():
+def script_optimized():
     # Load data from a CSV file
     file_path = "dataset2_Python+P7.csv"
     actions_df = pd.read_csv(file_path)
@@ -18,7 +18,7 @@ def script_knapsack():
     # Set the maximum budget
     max_budget = 500.00
 
-    def knapsack(actions, max_budget):
+    def optimized(actions, max_budget):
         # Number of shares
         n = len(actions)
 
@@ -45,8 +45,8 @@ def script_knapsack():
 
         return selected_actions, dp[n][int(max_budget * 100)]
 
-    # Solving the problem with the knapsack algorithm
-    selected_actions, max_profit = knapsack(actions, max_budget)
+    # Solving the problem with the optimized algorithm
+    selected_actions, max_profit = optimized(actions, max_budget)
 
     # Calculate the total cost of selected actions
     sum_of_costs = sum(action["Coût"] for action in selected_actions)
@@ -63,5 +63,5 @@ def script_knapsack():
 
 
 
-execution_time = timeit.timeit(script_knapsack, number=1)
+execution_time = timeit.timeit(script_optimized, number=1)
 print(f"Temps d'exécution : {execution_time:.2f} secondes")
