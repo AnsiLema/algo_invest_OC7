@@ -1,9 +1,9 @@
 import pandas as pd
 import timeit
 
-def script_optimized():
+def script_knapsack():
     # Load data from a CSV file
-    file_path = "dataset2_Python+P7.csv"
+    file_path = "dataset1_Python+P7.csv"
     actions_df = pd.read_csv(file_path)
 
     # Exclude stocks with a cost of 0 or a profit rate of 0
@@ -18,7 +18,7 @@ def script_optimized():
     # Set the maximum budget
     max_budget = 500.00
 
-    def optimized(actions, max_budget):
+    def knapsack(actions, max_budget):
         # Number of shares
         n = len(actions)
 
@@ -45,8 +45,8 @@ def script_optimized():
 
         return selected_actions, dp[n][int(max_budget * 100)]
 
-    # Solving the problem with the optimized algorithm
-    selected_actions, max_profit = optimized(actions, max_budget)
+    # Solving the problem with the knapsack algorithm
+    selected_actions, max_profit = knapsack(actions, max_budget)
 
     # Calculate the total cost of selected actions
     sum_of_costs = sum(action["Coût"] for action in selected_actions)
@@ -59,9 +59,9 @@ def script_optimized():
     print(f"Somme Investie: {sum_of_costs:.2f}€")
     print(f"Profit Total : {max_profit:.2f}€")
     profit_ratio = max_profit / sum_of_costs * 100
-    print(f"Ratio des bénéfices : {profit_ratio:.2f}%")
+    print(f"Bénéfices : {profit_ratio:.2f}%")
 
 
 
-execution_time = timeit.timeit(script_optimized, number=1)
+execution_time = timeit.timeit(script_knapsack, number=1)
 print(f"Temps d'exécution : {execution_time:.2f} secondes")
